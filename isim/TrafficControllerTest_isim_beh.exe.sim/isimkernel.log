@@ -1,0 +1,10 @@
+Command line:
+   TrafficControllerTest_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  33429
+
+Thu Jul 12 18:50:27 2018
+
+
+ Elaboration Time: 0.01 sec

@@ -1,0 +1,593 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> 
+Reading design: TrafficController.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "TrafficController.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "TrafficController"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : TrafficController
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "synchronizer_core.v" in library work
+Compiling verilog file "walkRegister.v" in library work
+Module <synchronizer_core> compiled
+Compiling verilog file "Timer.v" in library work
+Module <WalkRegister> compiled
+Compiling verilog file "TimeParameters.v" in library work
+Module <Timer> compiled
+Compiling verilog file "Synchronizer.v" in library work
+Module <TimeParameters> compiled
+Compiling verilog file "Lights.v" in library work
+Module <Synchronizer> compiled
+Compiling verilog file "FSM.v" in library work
+Module <Lights> compiled
+Compiling verilog file "Divider.v" in library work
+Module <FSM> compiled
+Compiling verilog file "TrafficController.v" in library work
+Module <Divider> compiled
+Module <TrafficController> compiled
+No errors in compilation
+Analysis of file <"TrafficController.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <TrafficController> in library <work>.
+
+Analyzing hierarchy for module <Synchronizer> in library <work>.
+
+Analyzing hierarchy for module <WalkRegister> in library <work>.
+
+Analyzing hierarchy for module <TimeParameters> in library <work> with parameters.
+	BASE_ADD = "00"
+	BASE_DEFAULT = "0110"
+	EXTD_ADD = "01"
+	EXTD_DEFAULT = "0011"
+	YELL_ADD = "10"
+	YELL_DEFAULT = "0010"
+
+Analyzing hierarchy for module <Timer> in library <work>.
+
+Analyzing hierarchy for module <Divider> in library <work> with parameters.
+	one_second_count = "0000000000000000000000011"
+
+Analyzing hierarchy for module <Lights> in library <work>.
+
+Analyzing hierarchy for module <FSM> in library <work> with parameters.
+	BASE_ADD = "00"
+	CONT_MAIN_GREEN_NO_TRAFFIC = "00000000000000000000000000000001"
+	CONT_MAIN_GREEN_TRAFFIC = "00000000000000000000000000000010"
+	CONT_SIDE_GREEN_TRAFFIC = "00000000000000000000000000000110"
+	EXT_ADD = "01"
+	MAIN_YELLOW = "00000000000000000000000000000011"
+	PEDESTRIAN_WALK = "00000000000000000000000000000100"
+	SIDE_YELLOW = "00000000000000000000000000000111"
+	START_MAIN_GREEN = "00000000000000000000000000000000"
+	START_SIDE_GREEN = "00000000000000000000000000000101"
+	YEL_ADD = "10"
+
+Analyzing hierarchy for module <synchronizer_core> in library <work> with parameters.
+	NSYNC = "00000000000000000000000000000010"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <TrafficController>.
+Module <TrafficController> is correct for synthesis.
+ 
+Analyzing module <Synchronizer> in library <work>.
+Module <Synchronizer> is correct for synthesis.
+ 
+Analyzing module <synchronizer_core> in library <work>.
+	NSYNC = 32'sb00000000000000000000000000000010
+Module <synchronizer_core> is correct for synthesis.
+ 
+Analyzing module <WalkRegister> in library <work>.
+Module <WalkRegister> is correct for synthesis.
+ 
+Analyzing module <TimeParameters> in library <work>.
+	BASE_ADD = 2'b00
+	BASE_DEFAULT = 4'b0110
+	EXTD_ADD = 2'b01
+	EXTD_DEFAULT = 4'b0011
+	YELL_ADD = 2'b10
+	YELL_DEFAULT = 4'b0010
+WARNING:Xst:1465 - "TimeParameters.v" line 58: Exactly not equal expression will be synthesized as a not equal expression, simulation mismatch is possible. 
+WARNING:Xst:1465 - "TimeParameters.v" line 59: Exactly not equal expression will be synthesized as a not equal expression, simulation mismatch is possible. 
+WARNING:Xst:1465 - "TimeParameters.v" line 60: Exactly not equal expression will be synthesized as a not equal expression, simulation mismatch is possible. 
+Module <TimeParameters> is correct for synthesis.
+ 
+Analyzing module <Timer> in library <work>.
+Module <Timer> is correct for synthesis.
+ 
+Analyzing module <Divider> in library <work>.
+	one_second_count = 25'b0000000000000000000000011
+Module <Divider> is correct for synthesis.
+ 
+Analyzing module <Lights> in library <work>.
+Module <Lights> is correct for synthesis.
+ 
+Analyzing module <FSM> in library <work>.
+	BASE_ADD = 2'b00
+	CONT_MAIN_GREEN_NO_TRAFFIC = 32'sb00000000000000000000000000000001
+	CONT_MAIN_GREEN_TRAFFIC = 32'sb00000000000000000000000000000010
+	CONT_SIDE_GREEN_TRAFFIC = 32'sb00000000000000000000000000000110
+	EXT_ADD = 2'b01
+	MAIN_YELLOW = 32'sb00000000000000000000000000000011
+	PEDESTRIAN_WALK = 32'sb00000000000000000000000000000100
+	SIDE_YELLOW = 32'sb00000000000000000000000000000111
+	START_MAIN_GREEN = 32'sb00000000000000000000000000000000
+	START_SIDE_GREEN = 32'sb00000000000000000000000000000101
+	YEL_ADD = 2'b10
+"FSM.v" line 91: $display : In start main green
+"FSM.v" line 94: $display : start main green - sensor in
+"FSM.v" line 113: $display : In main yellow
+"FSM.v" line 116: $display : walk button pressed!
+"FSM.v" line 129: $display : In pedestrian walk
+"FSM.v" line 137: $display : In start side green
+"FSM.v" line 140: $display : sensor input ok!
+"FSM.v" line 154: $display : In cont side green
+Module <FSM> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <WalkRegister>.
+    Related source file is "walkRegister.v".
+    Found 1-bit register for signal <walkRegister_status>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <WalkRegister> synthesized.
+
+
+Synthesizing Unit <TimeParameters>.
+    Related source file is "TimeParameters.v".
+    Found 4-bit register for signal <output_value>.
+    Found 4-bit register for signal <BASE_VALUE>.
+    Found 4-bit 4-to-1 multiplexer for signal <BASE_VALUE$mux0000> created at line 56.
+    Found 4-bit register for signal <EXTD_VALUE>.
+    Found 4-bit 4-to-1 multiplexer for signal <EXTD_VALUE$mux0000> created at line 56.
+    Found 4-bit 4-to-1 multiplexer for signal <output_value$mux0000> created at line 75.
+    Found 4-bit register for signal <YELL_VALUE>.
+    Found 4-bit 4-to-1 multiplexer for signal <YELL_VALUE$mux0000> created at line 56.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+	inferred  16 Multiplexer(s).
+Unit <TimeParameters> synthesized.
+
+
+Synthesizing Unit <Timer>.
+    Related source file is "Timer.v".
+    Found 1-bit register for signal <expired>.
+    Found 1-bit register for signal <divider_reset>.
+    Found 4-bit down counter for signal <remaining_time>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 D-type flip-flop(s).
+Unit <Timer> synthesized.
+
+
+Synthesizing Unit <Divider>.
+    Related source file is "Divider.v".
+    Found 1-bit register for signal <enable_output>.
+    Found 25-bit up counter for signal <sys_tick_count>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <Divider> synthesized.
+
+
+Synthesizing Unit <Lights>.
+    Related source file is "Lights.v".
+Unit <Lights> synthesized.
+
+
+Synthesizing Unit <FSM>.
+    Related source file is "FSM.v".
+    Found 7-bit register for signal <light_signals>.
+    Found 1-bit register for signal <start_timer>.
+    Found 2-bit register for signal <interval_address>.
+    Found 1-bit register for signal <walkRegister_reset>.
+    Found 3-bit register for signal <state>.
+    Summary:
+	inferred  14 D-type flip-flop(s).
+Unit <FSM> synthesized.
+
+
+Synthesizing Unit <synchronizer_core>.
+    Related source file is "synchronizer_core.v".
+    Found 1-bit register for signal <out>.
+    Found 1-bit register for signal <sync<0>>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <synchronizer_core> synthesized.
+
+
+Synthesizing Unit <Synchronizer>.
+    Related source file is "Synchronizer.v".
+Unit <Synchronizer> synthesized.
+
+
+Synthesizing Unit <TrafficController>.
+    Related source file is "TrafficController.v".
+WARNING:Xst:1780 - Signal <walkRequest_db_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <reset_db_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <reprogram_db_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <en>.
+    Found 1-bit register for signal <ex>.
+    Found 1-bit register for signal <st>.
+    Found 4-bit register for signal <tv>.
+    Summary:
+	inferred   7 D-type flip-flop(s).
+Unit <TrafficController> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 25-bit up counter                                     : 1
+ 4-bit down counter                                    : 1
+# Registers                                            : 25
+ 1-bit register                                        : 17
+ 2-bit register                                        : 1
+ 3-bit register                                        : 1
+ 4-bit register                                        : 5
+ 7-bit register                                        : 1
+# Multiplexers                                         : 4
+ 4-bit 4-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 25-bit up counter                                     : 1
+ 4-bit down counter                                    : 1
+# Registers                                            : 49
+ Flip-Flops                                            : 49
+# Multiplexers                                         : 4
+ 4-bit 4-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <TrafficController> ...
+
+Optimizing unit <TimeParameters> ...
+
+Optimizing unit <Timer> ...
+
+Optimizing unit <FSM> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block TrafficController, actual ratio is 1.
+
+Final Macro Processing ...
+
+Processing Unit <TrafficController> :
+	Found 2-bit shift register for signal <synchronizer/reset_synchronizer/out>.
+	Found 2-bit shift register for signal <synchronizer/walkRequest_synchronizer/out>.
+	Found 2-bit shift register for signal <synchronizer/reprogram_synchronizer/out>.
+	Found 2-bit shift register for signal <synchronizer/sensor_synchronizer/out>.
+Unit <TrafficController> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 70
+ Flip-Flops                                            : 70
+# Shift Registers                                      : 4
+ 2-bit shift register                                  : 4
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : TrafficController.ngr
+Top Level Output File Name         : TrafficController
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 25
+
+Cell Usage :
+# BELS                             : 147
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 24
+#      LUT2                        : 7
+#      LUT3                        : 20
+#      LUT4                        : 32
+#      MUXCY                       : 31
+#      MUXF5                       : 2
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 74
+#      FD                          : 11
+#      FDE                         : 11
+#      FDR                         : 28
+#      FDRE                        : 17
+#      FDS                         : 2
+#      FDSE                        : 5
+# Shift Registers                  : 4
+#      SRL16                       : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 24
+#      IBUF                        : 10
+#      OBUF                        : 14
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       49  out of   4656     1%  
+ Number of Slice Flip Flops:             74  out of   9312     0%  
+ Number of 4 input LUTs:                 91  out of   9312     0%  
+    Number used as logic:                87
+    Number used as Shift registers:       4
+ Number of IOs:                          25
+ Number of bonded IOBs:                  25  out of    232    10%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 78    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.477ns (Maximum Frequency: 154.392MHz)
+   Minimum input arrival time before clock: 4.388ns
+   Maximum output required time after clock: 4.620ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.477ns (frequency: 154.392MHz)
+  Total number of paths / destination ports: 1211 / 155
+-------------------------------------------------------------------------
+Delay:               6.477ns (Levels of Logic = 8)
+  Source:            divider/sys_tick_count_9 (FF)
+  Destination:       divider/sys_tick_count_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: divider/sys_tick_count_9 to divider/sys_tick_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.622  divider/sys_tick_count_9 (divider/sys_tick_count_9)
+     LUT4:I0->O            1   0.704   0.000  divider/enable_output_cmp_eq0000_wg_lut<1> (divider/enable_output_cmp_eq0000_wg_lut<1>)
+     MUXCY:S->O            1   0.464   0.000  divider/enable_output_cmp_eq0000_wg_cy<1> (divider/enable_output_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  divider/enable_output_cmp_eq0000_wg_cy<2> (divider/enable_output_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  divider/enable_output_cmp_eq0000_wg_cy<3> (divider/enable_output_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  divider/enable_output_cmp_eq0000_wg_cy<4> (divider/enable_output_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  divider/enable_output_cmp_eq0000_wg_cy<5> (divider/enable_output_cmp_eq0000_wg_cy<5>)
+     MUXCY:CI->O           2   0.459   0.526  divider/enable_output_cmp_eq0000_wg_cy<6> (divider/enable_output_cmp_eq0000)
+     LUT2:I1->O           25   0.704   1.260  divider/sys_tick_count_or00001 (divider/sys_tick_count_or0000)
+     FDR:R                     0.911          divider/sys_tick_count_0
+    ----------------------------------------
+    Total                      6.477ns (4.069ns logic, 2.408ns route)
+                                       (62.8% logic, 37.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 55 / 16
+-------------------------------------------------------------------------
+Offset:              4.388ns (Levels of Logic = 3)
+  Source:            extTimeValue<3> (PAD)
+  Destination:       timeParameters/YELL_VALUE_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: extTimeValue<3> to timeParameters/YELL_VALUE_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.218   0.844  extTimeValue_3_IBUF (extTimeValue_3_IBUF)
+     LUT4:I0->O            3   0.704   0.610  timeParameters/Mmux_BASE_VALUE_mux0000421 (timeParameters/N9)
+     LUT4:I1->O            1   0.704   0.000  timeParameters/Mmux_YELL_VALUE_mux000021 (timeParameters/YELL_VALUE_mux0000<1>)
+     FDSE:D                    0.308          timeParameters/YELL_VALUE_1
+    ----------------------------------------
+    Total                      4.388ns (2.934ns logic, 1.454ns route)
+                                       (66.9% logic, 33.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 14 / 14
+-------------------------------------------------------------------------
+Offset:              4.620ns (Levels of Logic = 1)
+  Source:            st (FF)
+  Destination:       st (PAD)
+  Source Clock:      clk rising
+
+  Data Path: st to st
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               8   0.591   0.757  st (st_OBUF)
+     OBUF:I->O                 3.272          st_OBUF (st)
+    ----------------------------------------
+    Total                      4.620ns (3.863ns logic, 0.757ns route)
+                                       (83.6% logic, 16.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 4.75 secs
+ 
+--> 
+
+
+Total memory usage is 514724 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

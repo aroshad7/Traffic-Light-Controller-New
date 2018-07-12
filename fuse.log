@@ -1,0 +1,38 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/arosha/Desktop/HDL Project/Project/TrafficControllerTest_isim_beh.exe -prj /home/arosha/Desktop/HDL Project/Project/TrafficControllerTest_beh.prj work.TrafficControllerTest work.glbl 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/synchronizer_core.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/walkRegister.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/Timer.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/TimeParameters.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/Synchronizer.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/Lights.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/FSM.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/Divider.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/TrafficController.v" into library work
+Analyzing Verilog file "/home/arosha/Desktop/HDL Project/Project/TrafficControllerTest.v" into library work
+Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 95608 KB
+Fuse CPU Usage: 1270 ms
+Compiling module synchronizer_core
+Compiling module Synchronizer
+Compiling module WalkRegister
+Compiling module TimeParameters
+Compiling module Timer
+Compiling module Divider
+Compiling module Lights
+Compiling module FSM
+Compiling module TrafficController
+Compiling module TrafficControllerTest
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 4 sub-compilation(s) to finish...
+Compiled 11 Verilog Units
+Built simulation executable /home/arosha/Desktop/HDL Project/Project/TrafficControllerTest_isim_beh.exe
+Fuse Memory Usage: 655776 KB
+Fuse CPU Usage: 1300 ms
+GCC CPU Usage: 1190 ms
